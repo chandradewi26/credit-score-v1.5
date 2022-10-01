@@ -125,7 +125,6 @@ namespace Credit_Score_App
 
         public decimal CalculateCredit (Customer customer)
         {
-
             //Get the points
             int point = CalculatePoint(customer);
 
