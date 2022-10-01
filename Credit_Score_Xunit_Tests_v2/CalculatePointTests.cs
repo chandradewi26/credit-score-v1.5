@@ -26,8 +26,8 @@ public class CalculatePointTests
     public void TestCalculatePoint_GivenBureauScoreInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
-        var calculator = new CreditCalculator();
-        var result = calculator.CalculateBureauScore(customer);
+        var calculator = new BureauScoreCalculator();
+        var result = calculator.Calculate(customer);
         Assert.Equal(expectedOutput, result);
     }
 
@@ -46,8 +46,8 @@ public class CalculatePointTests
     public void TestCalculatePoint_GivenMissedPaymentCountInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
-        var calculator = new CreditCalculator();
-        var result = calculator.CalculateMissedPaymentCount(customer);
+        var calculator = new MissedPaymentCalculator();
+        var result = calculator.Calculate(customer);
         Assert.Equal(expectedOutput, result);
     }
 
@@ -66,8 +66,8 @@ public class CalculatePointTests
     public void GivenCompletedPaymentCountInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
-        var calculator = new CreditCalculator();
-        var result = calculator.CalculateCompletedPaymentCount(customer);
+        var calculator = new CompletedPaymentCalculator();
+        var result = calculator.Calculate(customer);
         Assert.Equal(expectedOutput, result);
     }
 
@@ -95,8 +95,8 @@ public class CalculatePointTests
     public void GivenCustomerAgeInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
-        var calculator = new CreditCalculator();
-        var result = calculator.CalculateAge(customer);
+        var calculator = new AgeCalculator();
+        var result = calculator.Calculate(customer);
         Assert.Equal(expectedOutput, result);
     }
 
