@@ -13,71 +13,9 @@ namespace Credit_Score_App
 
     public class CreditCalculator : ICreditCalculator
     {
-
-        //REFACTOR IT
-        public int CalculatePoint (Customer customer)
+        public int CalculateAge (Customer customer)
         {
             int point = 0;
-
-            //Bureau Score
-            if (customer.BureauScore > 450 && customer.BureauScore <= 700)
-            {
-                point += 1;
-            }
-            else if (customer.BureauScore > 700 && customer.BureauScore <= 850)
-            {
-                point += 2;
-            }
-            else if (customer.BureauScore > 850 && customer.BureauScore <= 1000)
-            {
-                point += 3;
-            }
-            else //Lower than 450 or Higher than 1000
-            {
-                point += 0;
-            }
-
-            //Missed Payments
-            switch (customer.MissedPaymentCount)
-            {
-                case 0:
-                    point += 0;
-                    break;
-                case 1:
-                    point += -1;
-                    break;
-                case 2:
-                    point += -3;
-                    break;
-                case >= 3:
-                    point += -6;
-                    break;
-                default:
-                    point += 0;
-                    break;
-            }
-
-            //Completed Payments
-            switch (customer.CompletedPaymentCount)
-            {
-                case 0:
-                    point += 0;
-                    break;
-                case 1:
-                    point += 2;
-                    break;
-                case 2:
-                    point += 3;
-                    break;
-                case >= 3:
-                    point += 4;
-                    break;
-                default:
-                    point += 0;
-                    break;
-            }
-
-            //Age Points
             if (customer.AgeInYears >= 18 && customer.AgeInYears <= 25)
             {
                 point += 3;
@@ -98,6 +36,90 @@ namespace Credit_Score_App
             {
                 point += 0;
             }
+            return point;
+
+        }
+        public int CalculateBureauScore (Customer customer)
+        {
+            int point = 0;
+
+            //Bureau Score
+            if (customer.BureauScore > 450 && customer.BureauScore <= 700)
+            {
+                point += 1;
+            }
+            else if (customer.BureauScore > 700 && customer.BureauScore <= 850)
+            {
+                point += 2;
+            }
+            else if (customer.BureauScore > 850 && customer.BureauScore <= 1000)
+            {
+                point += 3;
+            }
+            else //Lower than 450 or Higher than 1000
+            {
+                point += 0;
+            }
+            return point;
+        }
+
+        public int CalculateMissedPaymentCount (Customer customer)
+        {
+            int point = 0;
+            switch (customer.MissedPaymentCount)
+            {
+                case 0:
+                    point += 0;
+                    break;
+                case 1:
+                    point += -1;
+                    break;
+                case 2:
+                    point += -3;
+                    break;
+                case >= 3:
+                    point += -6;
+                    break;
+                default:
+                    point += 0;
+                    break;
+            }
+            return point;
+        }
+
+        public int CalculateCompletedPaymentCount (Customer customer)
+        {
+            int point = 0;
+            switch (customer.CompletedPaymentCount)
+            {
+                case 0:
+                    point += 0;
+                    break;
+                case 1:
+                    point += 2;
+                    break;
+                case 2:
+                    point += 3;
+                    break;
+                case >= 3:
+                    point += 4;
+                    break;
+                default:
+                    point += 0;
+                    break;
+            }
+            return point;
+        }
+
+        public int CalculatePoint (Customer customer)
+        {
+            int point = 0;
+
+            point += CalculateBureauScore(customer);
+            point += CalculateCompletedPaymentCount(customer);
+            point += CalculateMissedPaymentCount(customer);
+            point += CalculateAge(customer);
+
             return point;
         }
 

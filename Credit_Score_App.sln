@@ -5,9 +5,7 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Credit_Score_App", "Credit_Score_App\Credit_Score_App.csproj", "{25B640AE-5458-4EAD-8882-6EF9CD04082E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credit_Score_App_NunitTests", "Credit_Score_App_NunitTests\Credit_Score_App_NunitTests.csproj", "{AC85E376-4C59-4CB9-A26D-2DFA4B9BCDD4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Credit_Score_Xunit_Tests_v2", "Credit_Score_Xunit_Tests_v2\Credit_Score_Xunit_Tests_v2.csproj", "{0A1BC3FC-87C5-4469-8C8E-B180B6114132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Credit_Score_Xunit_Tests_v2", "Credit_Score_Xunit_Tests_v2\Credit_Score_Xunit_Tests_v2.csproj", "{0A1BC3FC-87C5-4469-8C8E-B180B6114132}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{25B640AE-5458-4EAD-8882-6EF9CD04082E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25B640AE-5458-4EAD-8882-6EF9CD04082E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25B640AE-5458-4EAD-8882-6EF9CD04082E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AC85E376-4C59-4CB9-A26D-2DFA4B9BCDD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC85E376-4C59-4CB9-A26D-2DFA4B9BCDD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC85E376-4C59-4CB9-A26D-2DFA4B9BCDD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC85E376-4C59-4CB9-A26D-2DFA4B9BCDD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0A1BC3FC-87C5-4469-8C8E-B180B6114132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A1BC3FC-87C5-4469-8C8E-B180B6114132}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A1BC3FC-87C5-4469-8C8E-B180B6114132}.Release|Any CPU.ActiveCfg = Release|Any CPU

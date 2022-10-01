@@ -29,7 +29,7 @@ public class CalculatePointTests
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
         var calculator = new CreditCalculator();
-        var result = calculator.CalculatePoint(customer);
+        var result = calculator.CalculateBureauScore(customer);
         Assert.Equal(expectedOutput, result);
     }
 
@@ -49,7 +49,7 @@ public class CalculatePointTests
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
         var calculator = new CreditCalculator();
-        var result = calculator.CalculatePoint(customer);
+        var result = calculator.CalculateMissedPaymentCount(customer);
         Assert.Equal(expectedOutput, result);
     }
 
@@ -70,7 +70,7 @@ public class CalculatePointTests
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
         var calculator = new CreditCalculator();
-        var result = calculator.CalculatePoint(customer);
+        var result = calculator.CalculateCompletedPaymentCount(customer);
         Assert.Equal(expectedOutput, result);
     }
 
@@ -101,7 +101,7 @@ public class CalculatePointTests
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
         var calculator = new CreditCalculator();
-        var result = calculator.CalculatePoint(customer);
+        var result = calculator.CalculateAge(customer);
         Assert.Equal(expectedOutput, result);
     }
 }

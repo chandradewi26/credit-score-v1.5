@@ -1,0 +1,35 @@
+[33mcommit efa212508caa9c21b7298ccbeba9c43994c1291a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: chandradewi26 <69431090+chandradewi26@users.noreply.github.com>
+Date:   Sat Oct 1 16:51:34 2022 +1000
+
+    Refactor CalculatePoint()
+
+[33mcommit 0797985f8fee9298628d8271cbf0220ad7cfb8d2[m
+Author: chandradewi26 <69431090+chandradewi26@users.noreply.github.com>
+Date:   Sat Oct 1 16:44:30 2022 +1000
+
+    Remove unnecessary unit tests
+
+[33mcommit bfa8237145ec803bdcf107ef27a1f1f67dc5c14f[m
+Author: chandradewi26 <69431090+chandradewi26@users.noreply.github.com>
+Date:   Sat Oct 1 16:43:34 2022 +1000
+
+    Result of expected behaviour of method in test
+
+[33mcommit 942c0d590e2dfa38dfa2c726cc11f8924942cbe2[m
+Author: chandradewi26 <69431090+chandradewi26@users.noreply.github.com>
+Date:   Sat Oct 1 16:42:20 2022 +1000
+
+    Characterization Test - CalculatePoint()
+
+[33mcommit 4287855fb00abedec350918cd00a96d994cf80d8[m
+Author: chandradewi26 <69431090+chandradewi26@users.noreply.github.com>
+Date:   Sat Oct 1 13:53:00 2022 +1000
+
+    Adding XUnit Test Class Library
+
+[33mcommit cc537dd5c68eb98d882f0379107a41418be82ebb[m
+Author: chandradewi26 <69431090+chandradewi26@users.noreply.github.com>
+Date:   Thu Sep 29 10:07:23 2022 +1000
+
+    Initial commit, copied code from old repo
