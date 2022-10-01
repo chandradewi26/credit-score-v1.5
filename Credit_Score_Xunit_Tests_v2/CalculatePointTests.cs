@@ -104,4 +104,26 @@ public class CalculatePointTests
         var result = calculator.CalculateAge(customer);
         Assert.Equal(expectedOutput, result);
     }
+
+    [Theory(DisplayName = "Given customer's input, Calculate Point method returns correct Credit Point")]
+    [InlineData(100, 0, 3, 30, -1)]
+    [InlineData(1200, 1, 3, 60, -1)]
+    [InlineData(500, 1, 0, 20, -1)]
+    [InlineData(500, 1, 3, 20, -1)]
+    [InlineData(500, 5, 1, 30, -1)]
+    [InlineData(750, 1, 3, 29, -1)]
+    [InlineData(750, 2, 3, 30, -1)]
+    [InlineData(800, 0, 1, 30, -1)]
+    [InlineData(900, 0, 1, 55, -1)]
+    [InlineData(900, 1, 2, 20, -1)]
+    [InlineData(900, 2, 1, 30, -1)]
+    [InlineData(900, 3, 3, 40, -1)]
+    [InlineData(950, 0, 2, 15, -1)]
+    public void TestCalculatePoint_GivenCustomerInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
+    {
+        var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
+        var calculator = new CreditCalculator();
+        var result = calculator.CalculatePoint(customer);
+        Assert.Equal(expectedOutput, result);
+    }
 }
