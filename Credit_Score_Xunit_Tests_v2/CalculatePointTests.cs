@@ -1,5 +1,3 @@
-using Credit_Score_App;
-
 namespace Credit_Score_Xunit_Tests_v2;
 
 public class CalculatePointTests
