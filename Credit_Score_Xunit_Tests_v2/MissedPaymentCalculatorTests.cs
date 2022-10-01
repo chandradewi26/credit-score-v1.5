@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Credit_Score_Xunit_Tests_v2
+﻿namespace Credit_Score_Xunit_Tests_v2
 {
     public class MissedPaymentCalculatorTests
     {
