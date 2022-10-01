@@ -53,7 +53,6 @@ public class CalculatePointTests
         Assert.Equal(expectedOutput, result);
     }
 
-
     [Theory(DisplayName = "Given Completed Payment Count input, Calculate Point method returns correct Credit Point")]
     [InlineData(0, 0, 0, 0, 0)]
     [InlineData(0, 0, 1, 0, 2)]
@@ -73,8 +72,6 @@ public class CalculatePointTests
         var result = calculator.CalculateCompletedPaymentCount(customer);
         Assert.Equal(expectedOutput, result);
     }
-
-
 
     [Theory(DisplayName = "Given customer's age input, Calculate Point method returns correct Credit Point")]
     [InlineData(0, 0, 0, 5, 0)]
