@@ -1,7 +1,23 @@
-﻿namespace Credit_Score_Xunit_Tests_v2
+﻿using Microsoft.Extensions.DependencyInjection;
+
+namespace Credit_Score_Xunit_Tests_v2
 {
     public class CreditCalculatorTests
     {
+        private readonly IServiceCollection _services;
+        private readonly IServiceProvider _provider;
+        private readonly PointCalculator _pointCalculator;
+        private readonly CreditCalculator _creditCalculator;
+
+        public CreditCalculatorTests()
+        {
+            _services = new ServiceCollection();
+            _services.AddSingleton<ICalculator, PointCalculator>();
+            _provider = _services.BuildServiceProvider();
+            _pointCalculator = (PointCalculator)_provider.GetService<ICalculator>();
+            _creditCalculator = new CreditCalculator(_pointCalculator);
+        }
+
         [Theory(DisplayName = "Given customer's input, Calculate Credit method returns correct credit")]
         [InlineData(100, 0, 3, 30, 0)]
         [InlineData(1200, 1, 3, 60, 600)]
@@ -19,8 +35,7 @@
         public void TestCalculateCredit_GivenCustomerInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
         {
             var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
-            var calculator = new CreditCalculator();
-            var result = calculator.CalculateCredit(customer);
+            var result = _creditCalculator.CalculateCredit(customer);
             Assert.Equal(expectedOutput, result);
         }
     }
