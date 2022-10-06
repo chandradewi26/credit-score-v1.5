@@ -8,6 +8,7 @@ var implicitType = "Just assigning string to var";
 
 //Arrange
 CreditCalculator creditCalculator = new CreditCalculator();
+PointCalculator pointCalculator = new PointCalculator();
 
 Customer customer_decline = new Customer(0, 0, 3, 52);              
                                         // 0    0   4   6   =   10  ($0)
@@ -21,19 +22,19 @@ Customer customer_john =    new Customer(750, 1, 4, 29);
                                         // 2    -1  4   4   =   9   ($600)
 //Act
 Console.Write("Customer 1 : ");
-Console.Write(creditCalculator.CalculatePoint(customer_decline) + " points, ");
+Console.Write(pointCalculator.Calculate(customer_decline) + " points, ");
 Console.WriteLine(creditCalculator.CalculateCredit(customer_decline));
 Console.Write("Customer 2 : ");
-Console.Write(creditCalculator.CalculatePoint(customer_fail) + " points, ");
+Console.Write(pointCalculator.Calculate(customer_fail) + " points, ");
 Console.WriteLine(creditCalculator.CalculateCredit(customer_fail));
 Console.Write("Customer 3 : ");
-Console.Write(creditCalculator.CalculatePoint(customer_pass1) + " points, ");
+Console.Write(pointCalculator.Calculate(customer_pass1) + " points, ");
 Console.WriteLine(creditCalculator.CalculateCredit(customer_pass1));
 Console.Write("Customer 4 : ");
-Console.Write(creditCalculator.CalculatePoint(customer_pass2) + " points, ");
+Console.Write(pointCalculator.Calculate(customer_pass2) + " points, ");
 Console.WriteLine(creditCalculator.CalculateCredit(customer_pass2));
 Console.Write("Customer 5 : ");
-Console.Write(creditCalculator.CalculatePoint(customer_john) + " points, ");
+Console.Write(pointCalculator.Calculate(customer_john) + " points, ");
 Console.WriteLine(creditCalculator.CalculateCredit(customer_john));
 
 /* 
