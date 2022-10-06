@@ -4,7 +4,7 @@ public class PointCalculatorTests
 {
     [Theory(DisplayName = "Given customer's input, Calculate Point method returns correct Credit Point")]
     [InlineData(100, 0, 3, 30, 8)]
-    [InlineData(1200, 1, 3, 60, 12)]
+    [InlineData(1200, 1, 3, 60, 9)] //Realized that I was getting confused between characterization test and actually doing the test. The original result was 9
     [InlineData(500, 1, 0, 20, 3)]
     [InlineData(500, 1, 3, 20, 7)]
     [InlineData(500, 5, 1, 30, 1)]
