@@ -4,30 +4,17 @@
     {
         public int Calculate(Customer customer)
         {
-            int point = 0;
 
-            if (customer.AgeInYears >= 18 && customer.AgeInYears <= 25)
-            {
-                point += 3;
-            }
-            else if (customer.AgeInYears >= 26 && customer.AgeInYears <= 35)
-            {
-                point += 4;
-            }
-            else if (customer.AgeInYears >= 36 && customer.AgeInYears <= 50)
-            {
-                point += 5;
-            }
-            else if (customer.AgeInYears >= 51)
-            {
-                point += 6;
-            }
-            else
-            {
-                point += 0;
-            }
-
-            return point;
+            var age = customer.AgeInYears;
+            if (age >= 18 && age <= 25)
+                return 3;
+            if (age >= 26 && age <= 35)
+                return 4;
+            if (age >= 36 && age <= 50)
+                return 5;
+            if (age >= 51)
+                return 6;
+            return 0;
         }
     }
 }

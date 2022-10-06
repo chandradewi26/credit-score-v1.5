@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Credit_Score_Xunit_Tests_v2
+﻿namespace Credit_Score_Xunit_Tests_v2
 {
     public class AgeCalculatorTests
     {
@@ -29,7 +23,7 @@ namespace Credit_Score_Xunit_Tests_v2
         [InlineData(0, 0, 0, 90, 6)]
         [InlineData(0, 0, 0, 95, 6)]
         [InlineData(0, 0, 0, 100, 6)]
-        public void GivenCustomerAgeInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
+        public void TestCalculatePoint__GivenCustomerAgeInput__ReturnCorrectCreditPoint(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
         {
             var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
             var calculator = new AgeCalculator();
