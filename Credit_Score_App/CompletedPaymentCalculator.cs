@@ -10,26 +10,16 @@ namespace Credit_Score_App
     {
         public int Calculate(Customer customer)
         {
-            int point = 0;
-            switch (customer.CompletedPaymentCount)
-            {
-                case 0:
-                    point += 0;
-                    break;
-                case 1:
-                    point += 2;
-                    break;
-                case 2:
-                    point += 3;
-                    break;
-                case >= 3:
-                    point += 4;
-                    break;
-                default:
-                    point += 0;
-                    break;
-            }
-            return point;
+            var completedPayment = customer.CompletedPaymentCount;
+            if (completedPayment == 0)
+                return 0;
+            if (completedPayment == 1)
+                return 2;
+            if (completedPayment == 2)
+                return 3;
+            if (completedPayment >= 3)
+                return 4;
+        return 0;    
         }
     }
 }

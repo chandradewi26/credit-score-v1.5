@@ -9,6 +9,7 @@ namespace Credit_Score_Xunit_Tests_v2
     public class CompletedPaymentCalculatorTests
     {
         [Theory(DisplayName = "Given Completed Payment Count input, Calculate Point method returns correct Credit Point")]
+        [InlineData(0, 0, -5, 0, 0)]
         [InlineData(0, 0, 0, 0, 0)]
         [InlineData(0, 0, 1, 0, 2)]
         [InlineData(0, 0, 2, 0, 3)]
