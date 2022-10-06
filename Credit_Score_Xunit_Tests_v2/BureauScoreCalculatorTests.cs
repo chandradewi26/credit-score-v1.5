@@ -23,7 +23,8 @@
         [InlineData(900, 0, 0, 0, 3)]
         [InlineData(950, 0, 0, 0, 3)]
         [InlineData(1000, 0, 0, 0, 3)]
-        public void TestCalculatePoint_GivenBureauScoreInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
+        [InlineData(1050, 0, 0, 0, 0)]
+        public void TestCalculatePoint__GivenBureauScoreInput__ReturnCorrectCreditPoint(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
         {
             var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
             var calculator = new BureauScoreCalculator();
