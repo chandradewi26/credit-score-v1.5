@@ -3,6 +3,7 @@
     public class MissedPaymentCalculatorTests
     {
         [Theory(DisplayName = "Given Missed Payment Count input, Calculate Point method returns correct Credit Point")]
+        [InlineData(0, -5, 0, 0, 0)]
         [InlineData(0, 0, 0, 0, 0)]
         [InlineData(0, 1, 0, 0, -1)]
         [InlineData(0, 2, 0, 0, -3)]
