@@ -19,7 +19,7 @@ namespace Credit_Score_App
                 return 3;
             if (completedPayment >= 3)
                 return 4;
-        return 0;    
+            return 0;    
         }
     }
 }

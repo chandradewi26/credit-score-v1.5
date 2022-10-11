@@ -11,7 +11,7 @@
                 return 2;
             if (bureauScore > 850 && bureauScore <= 1000)
                 return 3; 
-        return 0;
+            return 0;
         }
     }
 }

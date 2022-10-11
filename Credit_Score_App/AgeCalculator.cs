@@ -4,7 +4,6 @@
     {
         public int Calculate(Customer customer)
         {
-
             var age = customer.AgeInYears;
             if (age >= 18 && age <= 25)
                 return 3;
