@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Credit_Score_App
+﻿namespace Credit_Score_App
 {
-    public class CompletedPaymentCalculator : ICalculator
+    public interface ICompletedPaymentCalculator : ICalculator
+    {
+    }
+    
+    public class CompletedPaymentCalculator : ICompletedPaymentCalculator
     {
         public int Calculate(Customer customer)
         {

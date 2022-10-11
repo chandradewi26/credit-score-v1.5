@@ -1,6 +1,10 @@
 ﻿namespace Credit_Score_App
 {
-    public class BureauScoreCalculator : ICalculator
+    public interface IBureauScoreCalculator : ICalculator
+    {
+    }
+    
+    public class BureauScoreCalculator : IBureauScoreCalculator
     {
         public int Calculate(Customer customer)
         {

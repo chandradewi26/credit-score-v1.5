@@ -1,6 +1,10 @@
 ﻿namespace Credit_Score_App
 {
-    public class AgeCalculator : ICalculator
+    public interface IAgeCalculator : ICalculator
+    {
+    }
+    
+    public class AgeCalculator : IAgeCalculator
     {
         public int Calculate(Customer customer)
         {

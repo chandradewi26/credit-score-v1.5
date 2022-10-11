@@ -1,6 +1,10 @@
 ﻿namespace Credit_Score_App
 {
-    public class MissedPaymentCalculator : ICalculator
+    public interface IMissedPaymentCalculator : ICalculator
+    {
+        
+    }
+    public class MissedPaymentCalculator : IMissedPaymentCalculator
     {
         public int Calculate(Customer customer)
         {
