@@ -6,8 +6,13 @@ var implicitType = "Just assigning string to var";
 
 //This is Manual Testing
 
-//Arrange
-PointCalculator pointCalculator = new PointCalculator();
+//Arrange - using new()
+IAgeCalculator ageCalculator = new AgeCalculator();
+IBureauScoreCalculator bureauScoreCalculator = new BureauScoreCalculator();
+ICompletedPaymentCalculator completedPaymentCalculator = new CompletedPaymentCalculator();  
+IMissedPaymentCalculator missedPaymentCalculator = new MissedPaymentCalculator();
+
+PointCalculator pointCalculator = new PointCalculator(bureauScoreCalculator, completedPaymentCalculator, missedPaymentCalculator, ageCalculator);
 CreditCalculator creditCalculator = new CreditCalculator(pointCalculator);
 
 Customer customer_decline = new Customer(0, 0, 3, 52);              

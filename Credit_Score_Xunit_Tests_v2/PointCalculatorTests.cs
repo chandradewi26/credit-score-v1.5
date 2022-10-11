@@ -1,7 +1,28 @@
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Credit_Score_Xunit_Tests_v2;
 
 public class PointCalculatorTests
 {
+    private readonly IServiceCollection _services;
+    private readonly IServiceProvider _provider;
+    private readonly IPointCalculator _pointCalculator;
+
+    public PointCalculatorTests()
+    {
+        _services = new ServiceCollection();
+
+        _services.AddSingleton<IBureauScoreCalculator, BureauScoreCalculator>();
+        _services.AddSingleton<ICompletedPaymentCalculator, CompletedPaymentCalculator>();
+        _services.AddSingleton<IMissedPaymentCalculator, MissedPaymentCalculator>();
+        _services.AddSingleton<IAgeCalculator, AgeCalculator>();
+        _services.AddSingleton<IPointCalculator, PointCalculator>();
+
+        _provider = _services.BuildServiceProvider();
+
+        _pointCalculator = (PointCalculator)_provider.GetService<IPointCalculator>();
+    }
+
     [Theory(DisplayName = "Given customer's input, Calculate Point method returns correct Credit Point")]
     [InlineData(100, 0, 3, 30, 8)]
     [InlineData(1200, 1, 3, 60, 9)] //Realized that I was getting confused between characterization test and actually doing the test. The original result was 9
@@ -19,8 +40,7 @@ public class PointCalculatorTests
     public void TestCalculatePoint_GivenCustomerInput(int bureauScore, int missedPaymentCount, int completedPaymentCount, int ageInYears, int expectedOutput)
     {
         var customer = new Customer(bureauScore, missedPaymentCount, completedPaymentCount, ageInYears);
-        var calculator = new PointCalculator();
-        var result = calculator.Calculate(customer);
+        var result = _pointCalculator.Calculate(customer);
         Assert.Equal(expectedOutput, result);
     }
 }

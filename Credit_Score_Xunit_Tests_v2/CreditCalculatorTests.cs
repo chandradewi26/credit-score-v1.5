@@ -6,16 +6,22 @@ namespace Credit_Score_Xunit_Tests_v2
     {
         private readonly IServiceCollection _services;
         private readonly IServiceProvider _provider;
-        private readonly PointCalculator _pointCalculator;
-        private readonly CreditCalculator _creditCalculator;
+        private readonly ICreditCalculator _creditCalculator;
 
         public CreditCalculatorTests()
         {
             _services = new ServiceCollection();
-            _services.AddSingleton<ICalculator, PointCalculator>();
+
+            _services.AddSingleton<IBureauScoreCalculator, BureauScoreCalculator>();
+            _services.AddSingleton<ICompletedPaymentCalculator, CompletedPaymentCalculator>();
+            _services.AddSingleton<IMissedPaymentCalculator, MissedPaymentCalculator>();
+            _services.AddSingleton<IAgeCalculator, AgeCalculator>();
+            _services.AddSingleton<IPointCalculator, PointCalculator>();
+            _services.AddSingleton<ICreditCalculator, CreditCalculator>();
+
             _provider = _services.BuildServiceProvider();
-            _pointCalculator = (PointCalculator)_provider.GetService<ICalculator>();
-            _creditCalculator = new CreditCalculator(_pointCalculator);
+
+            _creditCalculator = (CreditCalculator)_provider.GetService<ICreditCalculator>(); 
         }
 
         [Theory(DisplayName = "Given customer's input, Calculate Credit method returns correct credit")]

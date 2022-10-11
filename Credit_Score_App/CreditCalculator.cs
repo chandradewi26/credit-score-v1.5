@@ -2,19 +2,15 @@
 {
     public class CreditCalculator : ICreditCalculator
     {
-        private readonly ICalculator _pointCalculator;
+        private readonly IPointCalculator _pointCalculator;
 
-        public CreditCalculator(ICalculator pointCalculator)
+        //Get the point calculator using dependency-injection
+        public CreditCalculator(IPointCalculator pointCalculator)
         {
             _pointCalculator = pointCalculator;
         }
         public decimal CalculateCredit (Customer customer)
         {
-            //This is dependency, we need to inject this from constructor
-            //PointCalculator pointCalculator = new PointCalculator();
-            
-            //Get the points
-            //int point = pointCalculator.Calculate(customer);
             int point = _pointCalculator.Calculate(customer);
 
             //Check if declined

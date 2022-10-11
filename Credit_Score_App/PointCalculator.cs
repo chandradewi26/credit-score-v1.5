@@ -1,26 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Credit_Score_App
+﻿namespace Credit_Score_App
 {
-    public class PointCalculator : ICalculator
+    public interface IPointCalculator : ICalculator
     {
+    }
+
+    public class PointCalculator : IPointCalculator
+    {
+        private readonly IBureauScoreCalculator _bureauScoreCalculator;
+        private readonly ICompletedPaymentCalculator _completedPaymentCalculator;
+        private readonly IMissedPaymentCalculator _missedPaymentCalculator;
+        private readonly IAgeCalculator _ageCalculator;
+
+        //Get all the necessary calculators using dependency-injection
+        public PointCalculator(
+            IBureauScoreCalculator bureauScoreCalculator, 
+            ICompletedPaymentCalculator completedPaymentCalculator, 
+            IMissedPaymentCalculator missedPaymentCalculator, 
+            IAgeCalculator ageCalculator)
+        {
+            _bureauScoreCalculator = bureauScoreCalculator;
+            _completedPaymentCalculator = completedPaymentCalculator;
+            _missedPaymentCalculator = missedPaymentCalculator;
+            _ageCalculator = ageCalculator;
+        }
+        
         public int Calculate(Customer customer)
         {
             int point = 0;
 
-            ICalculator bureauScoreCalculator = new BureauScoreCalculator();
-            ICalculator completedPaymentCalculator = new CompletedPaymentCalculator();
-            ICalculator missedPaymentCalculator = new MissedPaymentCalculator();
-            ICalculator ageCalculator = new AgeCalculator();
-
-            point += bureauScoreCalculator.Calculate(customer);
-            point += completedPaymentCalculator.Calculate(customer);
-            point += missedPaymentCalculator.Calculate(customer);
-            point += ageCalculator.Calculate(customer);
+            point += _bureauScoreCalculator.Calculate(customer);
+            point += _completedPaymentCalculator.Calculate(customer);
+            point += _missedPaymentCalculator.Calculate(customer);
+            point += _ageCalculator.Calculate(customer);
 
             return point;
         }
